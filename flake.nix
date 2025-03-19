@@ -32,56 +32,69 @@
       url = "github:homebrew/homebrew-bundle";
       flake = false;
     };
+
+    # wsl
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
   outputs = {
     self,
+    home-manager,
+    nixpkgs,
     nix-darwin,
     mac-app-util,
-    home-manager,
     nix-homebrew,
     homebrew-core,
     homebrew-cask,
     homebrew-bundle,
+    nixos-wsl,
     ...
   }:
   let
-    configuration = { pkgs, ... }: {
-      # system packages
+    commonConfig = { pkgs, ... }: {
+      nix.settings.experimental-features = "nix-command flakes";
+
       environment.systemPackages = with pkgs; [
-	      alacritty
-	      neovim
-	      tmux
-	      git
-        zsh
-	      oh-my-zsh
-	      python3
-        rustup
-        signal-desktop
-      ];
-
-      # homebrew packages
-      homebrew = {
-        enable = true;
-        casks = [
-          "amethyst"
-          "djuced"
-          "zen-browser"
-          "tidal"
-        ];
-        brews = [
-          "libiconv"
-        ];
-      };
-
-      # allow unfree packages
-      nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
-       "signal-desktop"
+        alacritty
+	neovim
+	tmux
+	git
+	zsh
+	python3
+	rustup
+	signal-desktop
       ];
 
       fonts.packages = with pkgs; [
         nerd-fonts.fira-code
       ];
+
+      nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
+        "signal-desktop"
+      ];
+
+    };
+
+    darwinConfig = {
+      nixpkgs,
+      nix-darwin,
+      mac-app-util,
+      nix-homebrew,
+      homebrew,
+      homebrew-cask,
+      homebrew-bundle,
+      homebrew-core,
+      ...
+    }: {
+      homebrew = {
+        enable = true;
+	casks = [
+	  "amethyst"
+	  "djuced"
+	  "zen-browser"
+	  "tidal"
+	];
+      };
 
       imports = [
         home-manager.darwinModules.home-manager
@@ -89,13 +102,17 @@
 
       users.users.ruarq = {
         name = "ruarq";
-	      home = "/Users/ruarq";
+	home = "/Users/ruarq";
       };
 
-      home-manager.users.ruarq = import ./users/ruarq/home.nix;
+      home-manager = {
+        useGlobalPkgs = true;
+        useUserPackages = true;
 
-      # Necessary for using flakes on this system.
-      nix.settings.experimental-features = "nix-command flakes";
+        users = {
+	  ruarq = import ./users/ruarq/home.nix;
+	};
+      };
 
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
@@ -104,14 +121,51 @@
       # $ darwin-rebuild changelog
       system.stateVersion = 6;
 
-      # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
+    };
+
+    wslConfig = { pkgs, ... }: {
+      imports = [
+        home-manager.nixosModules.home-manager
+      ];
+
+      # root fs for wsl
+      fileSystems."/" = {
+        device = "none";
+	fsType = "tmpfs";
+	options = [ "defaults" ];
+      };
+
+      # disable bootloader
+      boot.loader.grub.enable = false;
+
+      programs.zsh.enable = true;
+
+      users.users.ruarq = {
+	isNormalUser = true;
+        name = "ruarq";
+	home = "/home/ruarq";
+	extraGroups = [ "wheel" "networkmanager" ];
+	shell = pkgs.zsh;
+      };
+
+      home-manager = {
+        useGlobalPkgs = true;
+	useUserPackages = true;
+
+        users = {
+	  ruarq = import ./users/ruarq/home.nix;
+	};
+      };
+
+      system.stateVersion = "25.05";
     };
   in
   {
-    darwinConfigurations."ruarqs-air" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."darwin" = nix-darwin.lib.darwinSystem {
       modules = [
-        configuration
+        commonConfig
+	darwinConfig
         mac-app-util.darwinModules.default
         nix-homebrew.darwinModules.nix-homebrew {
           nix-homebrew = {
@@ -127,6 +181,20 @@
             mutableTaps = false;
           };
         }
+      ];
+    };
+
+    nixosConfigurations."wsl2" = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        commonConfig
+	wslConfig
+	nixos-wsl.nixosModules.default {
+	  wsl = {
+	    enable = true;
+	    defaultUser = "ruarq";
+	  };
+	}
       ];
     };
   };
