@@ -4,6 +4,7 @@ flake.nix
 platforms/
   wsl.nix
   darwin.nix
+  common.nix
 users/
   ruarq/
     darwin/
