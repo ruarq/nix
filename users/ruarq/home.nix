@@ -10,10 +10,7 @@
 
   home = {
     username = "ruarq";
-    homeDirectory =
-      if pkgs.stdenv.isDarwin
-      then "/Users/ruarq"
-      else "/home/ruarq";
+    homeDirectory = if pkgs.stdenv.isDarwin then "/Users/ruarq" else "/home/ruarq";
     stateVersion = "25.05";
   };
 }

@@ -12,31 +12,31 @@
         plugin = nvim-lspconfig;
         type = "lua";
         config = ''
-	        -- nixd
-	        require('lspconfig').nixd.setup{}
+          -- nixd
+          require('lspconfig').nixd.setup{}
 
-	        -- rust
+          -- rust
           require('lspconfig').rust_analyzer.setup {
             cmd = { "${pkgs.rust-analyzer}/bin/rust-analyzer" },
-	          settings = {
-	            ['rust-analyzer'] = {
-	              checkOnSave = {
-		              command = "clippy",
-		            },
-	            },
-	          },
-	        }
-	      '';
+            settings = {
+              ['rust-analyzer'] = {
+                checkOnSave = {
+                  command = "clippy",
+                },
+              },
+            },
+          }
+        '';
       }
 
       # fuzzy finder
       plenary-nvim
       {
         plugin = telescope-nvim;
-	      type = "lua";
-	      config = ''
-	        require('telescope').setup{}
-	      '';
+        type = "lua";
+        config = ''
+          require('telescope').setup{}
+        '';
       }
 
       # syntax-highlighting
@@ -49,14 +49,14 @@
           plugins.bash
           plugins.vim
         ]);
-	      type = "lua";
-	      config = ''
-	        require('nvim-treesitter.configs').setup {
-	          highlight = {
-	            enable = true,
-	          },
-	        }
-	      '';
+        type = "lua";
+        config = ''
+          require('nvim-treesitter.configs').setup {
+            highlight = {
+              enable = true,
+            },
+          }
+        '';
       }
 
       # auto completion
@@ -176,11 +176,11 @@
       -- format on save rust files
       vim.api.nvim_create_autocmd("BufWritePre", {
         pattern = "*.rs",
-	      callback = function()
+        callback = function()
           vim.lsp.buf.format {
             async = false,
           }
-	      end
+        end
       })
     '';
   };

@@ -60,13 +60,13 @@
 
       environment.systemPackages = with pkgs; [
         alacritty
-	neovim
-	tmux
-	git
-	zsh
-	python3
-	rustup
-	signal-desktop
+        neovim
+        tmux
+        git
+        zsh
+        python3
+        rustup
+        signal-desktop
       ];
 
       fonts.packages = with pkgs; [
@@ -85,12 +85,12 @@
     }: {
       homebrew = {
         enable = true;
-	casks = [
-	  "amethyst"
-	  "djuced"
-	  "zen-browser"
-	  "tidal"
-	];
+        casks = [
+          "amethyst"
+          "djuced"
+          "zen-browser"
+          "tidal"
+        ];
       };
 
       imports = [
@@ -99,13 +99,13 @@
 
       users.users.ruarq = {
         name = "ruarq";
-	home = "/Users/ruarq";
+        home = "/Users/ruarq";
       };
 
       home-manager = {
         users = {
-	  ruarq = import ./users/ruarq/home.nix;
-	};
+          ruarq = import ./users/ruarq/home.nix;
+        };
       };
 
       # Set Git commit hash for darwin-version.
@@ -126,8 +126,8 @@
       # root fs for wsl
       fileSystems."/" = {
         device = "none";
-	fsType = "tmpfs";
-	options = [ "defaults" ];
+        fsType = "tmpfs";
+        options = [ "defaults" ];
       };
 
       # disable bootloader
@@ -136,20 +136,20 @@
       programs.zsh.enable = true;
 
       users.users.ruarq = {
-	isNormalUser = true;
+        isNormalUser = true;
         name = "ruarq";
-	home = "/home/ruarq";
-	extraGroups = [ "wheel" "networkmanager" ];
-	shell = pkgs.zsh;
+        home = "/home/ruarq";
+        extraGroups = [ "wheel" "networkmanager" ];
+        shell = pkgs.zsh;
       };
 
       home-manager = {
         useGlobalPkgs = true;
-	useUserPackages = true;
+        useUserPackages = true;
 
         users = {
-	  ruarq = import ./users/ruarq/home.nix;
-	};
+          ruarq = import ./users/ruarq/home.nix;
+        };
       };
 
       system.stateVersion = "25.05";
@@ -159,7 +159,7 @@
     darwinConfigurations."darwin" = nix-darwin.lib.darwinSystem {
       modules = [
         commonConfig
-	darwinConfig
+        darwinConfig
         mac-app-util.darwinModules.default
         nix-homebrew.darwinModules.nix-homebrew {
           nix-homebrew = {
@@ -182,13 +182,13 @@
       system = "x86_64-linux";
       modules = [
         commonConfig
-	wslConfig
-	nixos-wsl.nixosModules.default {
-	  wsl = {
-	    enable = true;
-	    defaultUser = "ruarq";
-	  };
-	}
+        wslConfig
+        nixos-wsl.nixosModules.default {
+          wsl = {
+            enable = true;
+            defaultUser = "ruarq";
+          };
+        }
       ];
     };
   };
