@@ -55,66 +55,12 @@
     ...
   }:
   let
-    commonConfig = { pkgs, ... }: {
-      nix.settings.experimental-features = "nix-command flakes";
-
-      environment.systemPackages = with pkgs; [
-        alacritty
-        neovim
-        tmux
-        git
-        zsh
-        python3
-        rustup
-        signal-desktop
-      ];
-
-      fonts.packages = with pkgs; [
-        nerd-fonts.fira-code
-      ];
-
-      nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
-        "signal-desktop"
-      ];
-
+    commonConfig = import ./platforms/common.nix;
+    
+    darwinConfig = import ./platforms/darwin.nix {
+      inherit home-manager mac-app-util nix-homebrew homebrew-core homebrew-cask homebrew-bundle;
     };
-
-    darwinConfig = { ... }: {
-      homebrew = {
-        enable = true;
-        casks = [
-          "amethyst"
-          "djuced"
-          "zen-browser"
-          "tidal"
-        ];
-      };
-
-      imports = [
-        home-manager.darwinModules.home-manager
-      ];
-
-      users.users.ruarq = {
-        name = "ruarq";
-        home = "/Users/ruarq";
-      };
-
-      home-manager = {
-        users = {
-          ruarq = import ./users/ruarq/home.nix;
-        };
-      };
-
-      # Set Git commit hash for darwin-version.
-      system.configurationRevision = self.rev or self.dirtyRev or null;
-
-      # Used for backwards compatibility, please read the changelog before changing.
-      # $ darwin-rebuild changelog
-      system.stateVersion = 6;
-
-      nixpkgs.hostPlatform = "aarch64-darwin";
-    };
-
+    
     wslConfig = { pkgs, ... }: {
       imports = [
         home-manager.nixosModules.home-manager
@@ -157,19 +103,9 @@
       modules = [
         commonConfig
         darwinConfig
-        mac-app-util.darwinModules.default
-        nix-homebrew.darwinModules.nix-homebrew {
-          nix-homebrew = {
-            enable = true;
-            enableRosetta = true;
-            user = "ruarq";
-            taps = {
-              "homebrew/homebrew-core" = homebrew-core;
-              "homebrew/homebrew-cask" = homebrew-cask;
-              "homebrew/homebrew-bundle" = homebrew-bundle;
-            };
-
-            mutableTaps = false;
+        {
+          system = {
+            configurationRevision = self.rev or self.dirtyRev or null;
           };
         }
       ];

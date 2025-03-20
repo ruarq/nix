@@ -7,12 +7,7 @@ platforms/
 users/
   ruarq/
     darwin/
-      home.nix
-      programs/
-        tidal.nix
-        zen-browser.nix
-        djuced.nix
-        amethyst.nix
+      homebrew.nix
     home.nix
     programs/
       neovim.nix
