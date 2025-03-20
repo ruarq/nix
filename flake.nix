@@ -175,7 +175,7 @@
       ];
     };
 
-    nixosConfigurations."wsl2" = nixpkgs.lib.nixosSystem {
+    nixosConfigurations."wsl" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         commonConfig
