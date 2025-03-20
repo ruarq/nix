@@ -1,0 +1,23 @@
+# Structure
+```
+flake.nix
+platforms/
+  wsl.nix
+  darwin.nix
+users/
+  ruarq/
+    darwin/
+      home.nix
+      programs/
+        tidal.nix
+        zen-browser.nix
+        djuced.nix
+        amethyst.nix
+    home.nix
+    programs/
+      neovim.nix
+      tmux.nix
+      zsh.nix
+      alacritty.nix
+      git.nix
+```
