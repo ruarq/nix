@@ -79,10 +79,7 @@
 
     };
 
-    darwinConfig = {
-      pkgs,
-      ...
-    }: {
+    darwinConfig = { ... }: {
       homebrew = {
         enable = true;
         casks = [
