@@ -41,12 +41,16 @@
     self,
     home-manager,
     nixpkgs,
+
+    # darwin
     nix-darwin,
     mac-app-util,
     nix-homebrew,
     homebrew-core,
     homebrew-cask,
     homebrew-bundle,
+
+    # wsl
     nixos-wsl,
     ...
   }:
@@ -76,14 +80,7 @@
     };
 
     darwinConfig = {
-      nixpkgs,
-      nix-darwin,
-      mac-app-util,
-      nix-homebrew,
-      homebrew,
-      homebrew-cask,
-      homebrew-bundle,
-      homebrew-core,
+      pkgs,
       ...
     }: {
       homebrew = {
@@ -106,9 +103,6 @@
       };
 
       home-manager = {
-        useGlobalPkgs = true;
-        useUserPackages = true;
-
         users = {
 	  ruarq = import ./users/ruarq/home.nix;
 	};
