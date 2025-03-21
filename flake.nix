@@ -2,8 +2,14 @@
   description = "Zenful nix-darwin system flake";
 
   inputs = {
-    # nixpkgs & nix-darwin
+    # nixpkgs
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+        # home-manager
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-darwin = {
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -11,12 +17,6 @@
 
     # show applications installed through nix in spotlight
     mac-app-util.url = "github:hraban/mac-app-util";
-
-    # home-manager
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     # homebrew
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
@@ -35,6 +35,9 @@
 
     # wsl
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+
+    # bandsnatch (bandcamp bulk downloader)
+    bandsnatch.url = "github:ovyerus/bandsnatch";
   };
 
   outputs = {
@@ -52,10 +55,15 @@
 
     # wsl
     nixos-wsl,
+
+    # other stuff
+    bandsnatch,
     ...
   }:
   let
-    commonConfig = import ./platforms/common.nix;
+    commonConfig = import ./platforms/common.nix {
+      inherit bandsnatch;
+    };
     
     darwinConfig = import ./platforms/darwin.nix {
       inherit home-manager mac-app-util nix-homebrew homebrew-core homebrew-cask homebrew-bundle;

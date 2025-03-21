@@ -23,6 +23,7 @@
       "djuced"
       "zen-browser"
       "tidal"
+      "nextcloud"
     ];
   };
 }
