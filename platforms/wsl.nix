@@ -4,7 +4,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    gnome-keyring
+    libgnome-keyring
   ];
 
   services.gnome.gnome-keyring.enable = true;

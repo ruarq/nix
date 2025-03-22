@@ -19,7 +19,7 @@
       diff.colorMoved = "default";
       merge.conflictStyle = "diff3";
 
-      credential.helper = "libsecret";
+      credential.helper = if pkgs.stdenv.isDarwin then null else "libsecret";
     };
 
     ignores = [

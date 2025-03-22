@@ -15,6 +15,7 @@
 
       # git & libsecret & co
       (git.override { withLibsecret = true; })
+      git-credential-libsecret
       libsecret
 
       # can't move these to /users/ruarq/home.nix (for now) as that
