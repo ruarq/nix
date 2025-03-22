@@ -13,11 +13,10 @@
       delta
       bandsnatch.packages.${pkgs.system}.default
 
-      # git & libsecret
-      # (git.override { withLibsecret = true; })
-      git
+      # git & libsecret & co
+      (git.override { withLibsecret = true; })
       git-credential-manager
-      # libsecret
+      libsecret
 
       # can't move these to /users/ruarq/home.nix (for now) as that
       # breaks the mac-app-util flake

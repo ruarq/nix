@@ -3,6 +3,12 @@
     home-manager.nixosModules.home-manager
   ];
 
+  environment.systemPackages = with pkgs; [
+    gnome-keyring
+  ];
+
+  services.gnome.gnome-keyring.enable = true;
+
   # root fs for wsl
   fileSystems."/" = {
     device = "none";
