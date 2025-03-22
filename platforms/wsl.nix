@@ -19,8 +19,6 @@
   # disable bootloader
   boot.loader.grub.enable = false;
 
-  programs.zsh.enable = true;
-
   users.users.ruarq = {
     isNormalUser = true;
     name = "ruarq";

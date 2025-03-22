@@ -6,6 +6,7 @@
     ./programs/tmux.nix
     ./programs/alacritty.nix
     ./programs/git.nix
+    ./programs/ssh.nix
   ];
 
   home = {

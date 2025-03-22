@@ -1,26 +1,25 @@
-{ bandsnatch, ... }:
-  { pkgs, ... }:
-  {
-    nix.settings.experimental-features = "nix-command flakes";
+{ bandsnatch, ... }: { pkgs, ... }:
+{
+  nix.settings.experimental-features = "nix-command flakes";
 
-    environment.systemPackages = with pkgs; [
-      # programming tools
-      neovim
-      tmux
-      zsh
-      python3
-      rustup
-      delta
-      bandsnatch.packages.${pkgs.system}.default
+  programs.zsh.enable = true;
 
-      # git & libsecret & co
-      (git.override { withLibsecret = true; })
-      libsecret
+  environment.systemPackages = with pkgs; [
+    # programming tools
+    neovim
+    tmux
+    zsh
+    python3
+    rustup
+    delta
+    bandsnatch.packages.${pkgs.system}.default
+    git
+    openssh
 
-      # can't move these to /users/ruarq/home.nix (for now) as that
-      # breaks the mac-app-util flake
-      signal-desktop
-      alacritty
+    # can't move these to /users/ruarq/home.nix (for now) as that
+    # breaks the mac-app-util flake
+    signal-desktop
+    alacritty
     ];
 
     fonts.packages = with pkgs; [
