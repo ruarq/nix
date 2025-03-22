@@ -7,14 +7,17 @@
       # programming tools
       neovim
       tmux
-      git
       zsh
       python3
       rustup
       delta
       bandsnatch.packages.${pkgs.system}.default
 
-      # can't move these to /users/ruarq/home.nix (for new) as that
+      # git & libsecret
+      (git.override { withLibsecret = true; })
+      libsecret
+
+      # can't move these to /users/ruarq/home.nix (for now) as that
       # breaks the mac-app-util flake
       signal-desktop
       alacritty

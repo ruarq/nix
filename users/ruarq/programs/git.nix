@@ -18,6 +18,8 @@
 
       diff.colorMoved = "default";
       merge.conflictStyle = "diff3";
+
+      credential.helper = "libsecret";
     };
 
     ignores = [
