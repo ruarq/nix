@@ -14,8 +14,10 @@
       bandsnatch.packages.${pkgs.system}.default
 
       # git & libsecret
-      (git.override { withLibsecret = true; })
-      libsecret
+      # (git.override { withLibsecret = true; })
+      git
+      git-credential-manager
+      # libsecret
 
       # can't move these to /users/ruarq/home.nix (for now) as that
       # breaks the mac-app-util flake
