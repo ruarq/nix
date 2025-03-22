@@ -23,6 +23,50 @@
                 checkOnSave = {
                   command = "clippy",
                 },
+                inlayHints = {
+                  enable                      = true,
+                  maxLength                   = null,
+                  closureStyle                = "impl_fn",
+                  closureReturnTypeHints      = { enable = "never" },
+                  discriminantHints           = { enable = "always" },
+                  bindingModeHints            = { enable = true },
+                  chainingHints               = { enable = true },
+                  closureCaptureHints         = { enable = true },
+                  implicitDrops               = { enable = false },
+                  implicitSizedBoundHints     = { enable = true },
+                  parameterHints              = { enable = true },
+                  rangeExclusiveHints         = { enable = true },
+                  renderColons                = { enable = true },
+
+                  closingBraceHints = {
+                    enable = true,
+                    minLines = 25,
+                  },
+
+                  expressionAdjustmentHints = {
+                    enable = "never",
+                    hideOutsideUnsafe = false,
+                    mode = "prefix",
+                  },
+
+                  genericParameterHints = {
+                    const     = { enable = true },
+                    lifetime  = { enable = false },
+                    type      = { enable = false },
+                  },
+
+                  lifetimeElisionHints = {
+                    enable = "never",
+                    useParameterNames = true,
+                  },
+
+                  typeHints = {
+                    enable = true,
+                    hideClosureInitialization = false,
+                    hideClosureParameter = false,
+                    hideNamedConstructor = false,
+                  },
+                },
               },
             },
           }
@@ -181,7 +225,17 @@
           vim.lsp.buf.format {
             async = false,
           }
-        end
+        end,
+      })
+
+      -- inlay hints
+      vim.api.nvim_create_autocmd("LspAttach", {
+        callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if client and client.server_capabilities.inlayHintProvider then
+            vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+          end
+        end,
       })
     '';
   };
