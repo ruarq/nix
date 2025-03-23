@@ -10,11 +10,17 @@
     tmux
     zsh
     python3
+
+    # rust
     rustup
+    cargo-release
+    cargo-semver-checks
+
     delta
-    bandsnatch.packages.${pkgs.system}.default
     git
     openssh
+
+    bandsnatch.packages.${pkgs.system}.default
 
     # can't move these to /users/ruarq/home.nix (for now) as that
     # breaks the mac-app-util flake
