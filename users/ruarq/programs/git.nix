@@ -5,6 +5,12 @@
     userName = "ruarq";
     userEmail = "anton@ruarq.co";
 
+    signing = {
+      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJtB3gatR2o6kdlYlYVtWIqX+xxSCpSE3mmbcw+o6pFt";
+      signByDefault = true;
+      signer = "ssh";
+    };
+
     extraConfig = {
       init.defaultBranch = "main";
 
@@ -18,6 +24,9 @@
 
       diff.colorMoved = "default";
       merge.conflictStyle = "diff3";
+
+      # sign commits with ssh key
+      gpg.format = "ssh";
     };
 
     ignores = [
