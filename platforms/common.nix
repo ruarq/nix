@@ -21,12 +21,12 @@
 
     bandsnatch.packages.${pkgs.system}.default
 
-    bitwarden-desktop
-
     # can't move these to /users/ruarq/home.nix (for now) as that
     # breaks the mac-app-util flake
     signal-desktop
     alacritty
+    bitwarden-desktop
+    obsidian
     ];
 
     fonts.packages = with pkgs; [
@@ -35,5 +35,6 @@
 
     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
       "signal-desktop"
+      "obsidian"
     ];
   }
