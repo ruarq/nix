@@ -19,7 +19,9 @@
     cargo-release
     cargo-semver-checks
 
+    # cli apps
     bandsnatch.packages.${pkgs.system}.default
+    tidal-dl
 
     # can't move these to /users/ruarq/home.nix (for now) as that
     # breaks the mac-app-util flake
