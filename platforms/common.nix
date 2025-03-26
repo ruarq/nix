@@ -13,6 +13,7 @@
     delta
     git
     openssh
+    clang_19
 
     # rust
     rustup
