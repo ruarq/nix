@@ -21,7 +21,9 @@
     cargo-semver-checks
     cargo-espflash
     cargo-espmonitor
-    esp-generate
+    cargo-generate
+    ldproxy
+    probe-rs
 
     # cli apps
     bandsnatch.packages.${pkgs.system}.default
@@ -33,6 +35,7 @@
     alacritty
     bitwarden-desktop
     obsidian
+
     ];
 
     fonts.packages = with pkgs; [
