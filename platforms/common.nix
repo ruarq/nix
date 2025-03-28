@@ -19,6 +19,9 @@
     rustup
     cargo-release
     cargo-semver-checks
+    cargo-espflash
+    cargo-espmonitor
+    esp-generate
 
     # cli apps
     bandsnatch.packages.${pkgs.system}.default
