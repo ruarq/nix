@@ -24,6 +24,7 @@
       "zen-browser"
       "tidal"
       "nextcloud"
+      "arduino-ide"
     ];
   };
 }

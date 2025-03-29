@@ -19,11 +19,6 @@
     rustup
     cargo-release
     cargo-semver-checks
-    cargo-espflash
-    cargo-espmonitor
-    cargo-generate
-    ldproxy
-    probe-rs
 
     # cli apps
     bandsnatch.packages.${pkgs.system}.default
@@ -35,7 +30,6 @@
     alacritty
     bitwarden-desktop
     obsidian
-
     ];
 
     fonts.packages = with pkgs; [
