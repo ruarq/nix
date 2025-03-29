@@ -14,6 +14,7 @@
     git
     openssh
     clang_19
+    gh
 
     # rust
     rustup
