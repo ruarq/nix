@@ -15,6 +15,8 @@
     openssh
     clang_19
     gh
+    python3
+    python3Packages.pip
 
     # rust
     rustup
