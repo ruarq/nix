@@ -17,6 +17,7 @@
     gh
     python3
     python3Packages.pip
+    ripgrep
 
     # rust
     rustup

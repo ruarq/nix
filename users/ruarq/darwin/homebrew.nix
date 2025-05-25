@@ -25,6 +25,8 @@
       "tidal"
       "nextcloud"
       "arduino-ide"
+      "anydesk"
+      "rekordbox"
     ];
   };
 }
