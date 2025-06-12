@@ -18,6 +18,7 @@
     python3
     python3Packages.pip
     ripgrep
+    isabelle
 
     # rust
     rustup
