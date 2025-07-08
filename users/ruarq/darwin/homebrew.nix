@@ -27,7 +27,6 @@
       "arduino-ide"
       "anydesk"
       "rekordbox"
-      "whisky"
     ];
   };
 }
