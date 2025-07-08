@@ -29,6 +29,9 @@
     bandsnatch.packages.${pkgs.system}.default
     tidal-dl
 
+    # gui apps
+    wine
+
     # can't move these to /users/ruarq/home.nix (for now) as that
     # breaks the mac-app-util flake
     signal-desktop
