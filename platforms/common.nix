@@ -29,9 +29,6 @@
     bandsnatch.packages.${pkgs.system}.default
     tidal-dl
 
-    # GUI shit
-    utm
-
     # breaks the mac-app-util flake
     signal-desktop
     alacritty
