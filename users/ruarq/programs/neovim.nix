@@ -15,6 +15,22 @@
           -- nixd
           require('lspconfig').nixd.setup{}
 
+          -- golang
+          require('lspconfig').gopls.setup {
+            cmd = { "${pkgs.gopls}/bin/gopls" },
+            filetypes = { "go", "gomod", "gowork", "gotmpl" },
+            root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+            settings = {
+              gopls = {
+                completeUnimported = true,
+                usePlaceholders = true,
+                analyses = {
+                  unusedParams = true,
+                },
+              },
+            },
+          }
+
           -- rust
           require('lspconfig').rust_analyzer.setup {
             cmd = { "${pkgs.rust-analyzer}/bin/rust-analyzer" },

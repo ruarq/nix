@@ -22,6 +22,7 @@
     nodejs_20
     cloc
     go
+    gopls
 
     # rust
     rustup
