@@ -16,7 +16,7 @@
           require('lspconfig').nixd.setup {}
 
           -- typescript
-          require('lspconfig').tsserver.setup {}
+          require('lspconfig').ts_ls.setup {}
 
           -- golang
           require('lspconfig').gopls.setup {
