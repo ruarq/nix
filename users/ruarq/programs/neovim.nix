@@ -13,7 +13,10 @@
         type = "lua";
         config = ''
           -- nixd
-          require('lspconfig').nixd.setup{}
+          require('lspconfig').nixd.setup {}
+
+          -- typescript
+          require('lspconfig').tsserver.setup {}
 
           -- golang
           require('lspconfig').gopls.setup {

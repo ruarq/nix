@@ -20,6 +20,7 @@
     ripgrep
     isabelle
     nodejs_20
+    typescript-language-server
     cloc
     go
     gopls
