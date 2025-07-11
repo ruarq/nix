@@ -21,6 +21,7 @@
     isabelle
     nodejs_20
     cloc
+    go
 
     # rust
     rustup
