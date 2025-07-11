@@ -219,6 +219,10 @@
 
       vim.g.mapleader = " "
 
+      -- to switch between buffers more easily
+      vim.keymap.set('n', '<Tab>', '<cmd>bnext<CR>')
+      vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<CR>')
+
       -- telescope keybindings
       vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<CR>')
       vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<CR>')
