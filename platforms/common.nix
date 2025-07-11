@@ -19,6 +19,8 @@
     python3Packages.pip
     ripgrep
     isabelle
+    nodejs_20
+    cloc
 
     # rust
     rustup
