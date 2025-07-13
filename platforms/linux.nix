@@ -10,19 +10,25 @@
       ./linux-hardware.nix
     ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.device = "/dev/nvme0n1";
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+    grub.device = "dev/nvme0n1";
+  };
 
-  networking.hostName = "thinix";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "thinix";
+    networkmanager.enable = true;
+  };
 
   time.timeZone = "Europe/Berlin";
 
-  services.xserver.enable = true;
-  services.xserver.windowManager.i3.enable = true;
-  services.xserver.xkb.layout = "de";
-  services.xserver.xkb.options = "eurosign:e,caps:escape";
+  services.xserver = {
+    enable = true;
+    windowManager.i3.enable = true;
+    xkb.layout = "de";
+    xkb.options = "eurosign:e,caps:escape";
+  };
 
   services.libinput.enable = true;
 

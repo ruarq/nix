@@ -1,5 +1,5 @@
 { ... }: {
-  windowManager.i3 = {
+  xsession.windowManager.i3 = {
     enable = true;
     extraConfig = ''
 # Default i3 configuration
