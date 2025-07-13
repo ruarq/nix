@@ -7,6 +7,7 @@
     ./programs/alacritty.nix
     ./programs/git.nix
     ./programs/ssh.nix
+    ./programs/i3.nix
   ];
 
   home = {
