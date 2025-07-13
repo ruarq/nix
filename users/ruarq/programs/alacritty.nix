@@ -10,7 +10,7 @@
       };
 
       font = {
-        size = 14;
+        size = 7;
 
         normal = {
           family = "FiraCode Nerd Font Mono";
