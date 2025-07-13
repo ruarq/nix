@@ -25,6 +25,9 @@
 
   services.xserver = {
     enable = true;
+    windowManager.i3 = {
+      enable = true;
+    };
     xkb.layout = "de";
     xkb.options = "eurosign:e,caps:escape";
   };
