@@ -37,6 +37,7 @@
   environment.systemPackages = with pkgs; [
     firefox
     pulseaudio
+    brightnessctl
   ];
 
   users.users.ruarq = {
