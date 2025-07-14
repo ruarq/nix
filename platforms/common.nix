@@ -9,21 +9,32 @@
     neovim
     tmux
     zsh
-    python3
     delta
     git
     openssh
-    clang_19
     gh
+    ripgrep
+    cloc
+
+    # Isabelle
+    isabelle
+
+    # C / C++
+    clang_19
+
+    # python
     python3
     python3Packages.pip
-    ripgrep
-    isabelle
-    nodejs_20
-    typescript-language-server
-    cloc
+
+    # go
     go
     gopls
+
+    # web development
+    nodejs_20
+    typescript-language-server
+    nodePackages.prettier
+    prettierd
 
     # rust
     rustup
@@ -39,6 +50,9 @@
     alacritty
     bitwarden-desktop
     obsidian
+
+    # element-desktop
+    (if !stdenv.isDarwin then element-desktop else null)
     ];
 
     fonts.packages = with pkgs; [

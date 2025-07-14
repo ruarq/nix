@@ -6,6 +6,8 @@
     vimAlias = true;
 
     plugins = with pkgs.vimPlugins; [
+      vim-prettier
+
       # language server
       vim-nix
       {
@@ -219,6 +221,9 @@
 
       vim.g.mapleader = " "
 
+      -- set prettier path to prettierd for faster formatting
+      vim.g["prettier#exec_cmd_path"] = "${pkgs.prettierd}/bin/prettierd"
+
       -- to switch between buffers more easily
       vim.keymap.set('n', '<Tab>', '<cmd>bnext<CR>')
       vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<CR>')
@@ -248,6 +253,12 @@
             async = false,
           }
         end,
+      })
+
+      -- format on save with prettier
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        pattern = "*.js,*.jsx,*.ts,*.tsx,*.json,*.css,*.scss,*.md,*.html",
+        command = "Prettier",
       })
 
       -- inlay hints

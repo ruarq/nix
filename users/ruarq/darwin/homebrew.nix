@@ -26,7 +26,6 @@
       "nextcloud"
       "arduino-ide"
       "anydesk"
-      "rekordbox"
     ];
   };
 }
