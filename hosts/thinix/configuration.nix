@@ -33,9 +33,9 @@
       xkb.layout = "de";
     };
     displayManager = {
-      gdm = {
+      sddm = {
         enable = true;
-        wayland = true;
+        wayland.enable = true;
       };
       sessionPackages = with pkgs; [
         sway
