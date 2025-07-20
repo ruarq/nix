@@ -6,7 +6,7 @@
     historyLimit = 10000;
     mouse = true;
     baseIndex = 1;
-    shell = "${pkgs.zsh}/bin/zsh";
+    shell = "${pkgs.fish}/bin/fish";
     prefix = "C-Space"; # deactivate "Select the previous input source" and "Select next source in Input menu" under "Settings > Keyboard > Keyboard Shortcuts > Input Sources" when on MacOS
     sensibleOnTop = false;
     escapeTime = 0; # to avoid delays with esc in nvim

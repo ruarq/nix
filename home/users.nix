@@ -1,11 +1,18 @@
 { pkgs, ... }: {
-  programs.zsh.enable = true;
+  programs.fish = {
+    enable = true;
+    vendor = {
+      functions.enable = true;
+      config.enable = true;
+      completions.enable = true;
+    };
+  };
 
   users.users.ruarq = {
     isNormalUser = true;
     description = "ruarq";
     home = "/home/ruarq";
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     extraGroups = [
       "wheel"
       "networkmanager"

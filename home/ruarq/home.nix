@@ -10,6 +10,7 @@
 
     cloc
     openssh
+    keychain
 
     wl-clipboard
 
@@ -23,6 +24,7 @@
     rustup
     cargo-release
     cargo-semver-checks
+    tree
 
     nerd-fonts.fira-code
 
@@ -30,7 +32,8 @@
   ];
 
   imports = [
-    ./programs/zsh/default.nix
+    # ./programs/zsh/default.nix
+    ./programs/fish/default.nix
     ./programs/tmux/default.nix
     ./programs/git/default.nix
     ./programs/neovim/default.nix
