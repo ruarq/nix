@@ -1,19 +1,37 @@
-{ pkgs, ... }: let mod = "Mod4"; in {
+{ ... }: {
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
+    checkConfig = false; # enabling this will create issues with the wallpapers
     config = {
-      modifier = mod;
-      terminal = "alacritty";
-      input = {
-        "*" = {
-          xkb_layout = "de";
-        };
+      input."*" = {
+        xkb_layout = "de";
       };
-      defaultWorkspace = "${mod}+1";
-      # bars = [
-      #   { command = "waybar"; }
-      # ];
+      modifier = "Mod4";
+      terminal = "alacritty";
+      defaultWorkspace = "1";
+      gaps = {
+        inner = 5;
+        outer = 5;
+        smartBorders = "on";
+        smartGaps = true;
+      };
+      window.titlebar = false;
+      output."*" = {
+        bg = "/home/ruarq/.wallpaper.jpg fill";
+      };
     };
+    extraConfig = ''
+      bindsym XF86AudioRaiseVolume exec pw-volume change +5%
+      bindsym XF86AudioLowerVolume exec pw-volume change -5%
+      bindsym XF86AudioMute exec pw-volume mute toggle
+
+      bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+      bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+    '';
+  };
+
+  home.file.".wallpaper.jpg" = {
+    source = ../../assets/wallpaper.jpg;
   };
 }

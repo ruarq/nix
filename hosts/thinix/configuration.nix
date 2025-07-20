@@ -47,6 +47,7 @@
 
   security = {
     polkit.enable = true;
+    rtkit.enable = true;
   };
 
   system.stateVersion = "25.05";

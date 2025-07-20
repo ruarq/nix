@@ -9,12 +9,16 @@
 
   home.packages = with pkgs; [
     delta
+    tree
+    htop
+    neofetch
 
     cloc
     openssh
     keychain
-
     wl-clipboard
+    pw-volume
+    brightnessctl
 
     isabelle
     clang_20
@@ -26,7 +30,6 @@
     rustup
     cargo-release
     cargo-semver-checks
-    tree
 
     nerd-fonts.fira-code
 
