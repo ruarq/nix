@@ -48,5 +48,6 @@
     ./programs/sway/default.nix
     ./programs/alacritty/default.nix
     ./programs/ssh/default.nix
+    ./programs/waybar/default.nix
   ];
 }

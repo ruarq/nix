@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -9,6 +9,11 @@
       };
       modifier = "Mod4";
       terminal = "alacritty";
+      bars = [
+        {
+          command = "waybar";
+        }
+      ];
       defaultWorkspace = "1";
       gaps = {
         inner = 5;
