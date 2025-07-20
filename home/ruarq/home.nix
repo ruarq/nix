@@ -29,6 +29,8 @@
     nerd-fonts.fira-code
 
     firefox
+    thunderbird
+    element-desktop
   ];
 
   imports = [
