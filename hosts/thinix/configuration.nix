@@ -43,7 +43,6 @@
       defaultSession = "sway";
     };
     dbus.enable = true;
-    getty.autologinUser = null;
   };
 
   security = {

@@ -5,6 +5,8 @@
     stateVersion = "25.05";
   };
 
+  services.gnome-keyring.enable = true;
+
   home.packages = with pkgs; [
     delta
 
@@ -30,7 +32,7 @@
 
     firefox
     thunderbird
-    element-desktop
+    element-desktop gcr
   ];
 
   imports = [

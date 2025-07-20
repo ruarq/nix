@@ -4,6 +4,7 @@
 
     interactiveShellInit = ''
       set fish_greeting
+      eval (ssh-agent -c)
     '';
 
     plugins = with pkgs.fishPlugins; [
