@@ -11,7 +11,7 @@
     delta
     tree
     htop
-    neofetch
+    fastfetch
 
     cloc
     openssh

@@ -46,15 +46,6 @@
       };
     };
     style = ''
-      /*
-      :root {
-        --base:#1e1e2e;
-        --surface0:#313244;
-        --overlay0:#6c7086;
-        --text:#cdd6f4;
-      }
-      */
-
       * {
         /* `otf-font-awesome` is required to be installed for icons */
         font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
@@ -106,7 +97,7 @@
       }
 
       #mode {
-          background-color: #64727D;
+          background-color: #6c7086;
           box-shadow: inset 0 -3px #ffffff;
       }
 
