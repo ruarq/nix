@@ -11,11 +11,11 @@
           "sway/workspaces"
         ];
         modules-right = [
+          "network"
           "cpu"
           "temperature"
           "memory"
           "disk"
-          "network"
           "battery"
           "clock"
         ];
@@ -153,7 +153,7 @@
       }
 
       #cpu, #temperature {
-        background-color: #313244;
+        background-color: #45475a;
       }
 
       #temperature.critical {
@@ -161,7 +161,7 @@
       }
 
       #memory, #disk {
-        background-color: #45475a;
+        background-color: #313244;
       }
 
       #network {
