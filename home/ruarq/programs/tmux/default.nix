@@ -16,27 +16,27 @@
       {
         plugin = catppuccin;
         extraConfig = ''
-        set -g @catppuccin_flavour 'mocha'
-        set -g status-right-length 100
-        set -g status-left-length 100
-        set -g status-left ""
-        set -g status-right "#{E:@catppuccin_status_application}"
-        set -agF status-right "#{E:@catppuccin_status_cpu}"
-        set -ag status-right "#{E:@catppuccin_status_session}"
-        set -ag status-right "#{E:@catppuccin_status_uptime}"
-        set -agF status-right "#{E:@catppuccin_status_battery}"
+          set -g @catppuccin_flavour 'mocha'
+          set -g status-right-length 100
+          set -g status-left-length 100
+          set -g status-left ""
+          set -g status-right "#{E:@catppuccin_status_application}"
+          set -agF status-right "#{E:@catppuccin_status_cpu}"
+          set -ag status-right "#{E:@catppuccin_status_session}"
+          set -ag status-right "#{E:@catppuccin_status_uptime}"
+          set -agF status-right "#{E:@catppuccin_status_battery}"
 
-        run ${config.home.homeDirectory}/.config/tmux/plugins/tmux-plugins/tmux-cpu/cpu.tmux
-        run ${config.home.homeDirectory}/.config/tmux/plugins/tmux-plugins/tmux-battery/battery.tmux
+          run ${config.home.homeDirectory}/.config/tmux/plugins/tmux-plugins/tmux-cpu/cpu.tmux
+          run ${config.home.homeDirectory}/.config/tmux/plugins/tmux-plugins/tmux-battery/battery.tmux
         '';
       }
       yank
     ];
 
     extraConfig = ''
-    # split windows
-    bind '"' split-window -v -c "#{pane_current_path}"
-    bind % split-window -h -c "#{pane_current_path}"
+      # split windows
+      bind '"' split-window -v -c "#{pane_current_path}"
+      bind % split-window -h -c "#{pane_current_path}"
     '';
 
   };

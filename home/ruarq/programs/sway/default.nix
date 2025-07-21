@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, ... }: {
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -23,7 +23,7 @@
       };
       window.titlebar = false;
       output."*" = {
-        bg = "/home/ruarq/.wallpaper.jpg fill";
+        bg = "${config.home.homeDirectory}/.wallpaper.jpg fill";
       };
     };
     extraConfig = ''
