@@ -20,7 +20,7 @@
           "clock"
         ];
         cpu = {
-          format = "CPU {load}% {avg_frequency}GHz";
+          format = "CPU {usage}% / {load:.0f}%";
           interval = updateInterval;
         };
         memory = {
@@ -98,7 +98,6 @@
 
       #mode {
           background-color: #6c7086;
-          box-shadow: inset 0 -3px #ffffff;
       }
 
       tooltip {
