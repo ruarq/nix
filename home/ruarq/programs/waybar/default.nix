@@ -32,7 +32,7 @@
           interval = updateInterval;
         };
         network = {
-          format = "↑{bandwidthUpBits} ↓{bandwidthDownBits}";
+          format = "↑{bandwidthUpBits} ↓{bandwidthDownBits} ({signalStrength}%)";
           tooltip-format = "Connected to: {essid} ({ipaddr})";
           interval = updateInterval;
         };
