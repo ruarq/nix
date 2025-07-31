@@ -16,6 +16,7 @@
 
     cloc
     gnumake
+    ninja
     openssh
     keychain
     wl-clipboard
