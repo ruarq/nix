@@ -26,7 +26,6 @@
     clang_20
     python3
     python3Packages.pip
-    python3Packages.dbus-python
     go
     nodejs
     bun
