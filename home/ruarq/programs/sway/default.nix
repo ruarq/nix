@@ -14,7 +14,6 @@
           command = "waybar";
         }
       ];
-      defaultWorkspace = "1";
       gaps = {
         inner = 5;
         outer = 5;
@@ -22,8 +21,18 @@
         smartGaps = true;
       };
       window.titlebar = false;
-      output."*" = {
-        bg = "${config.home.homeDirectory}/.wallpaper.jpg fill";
+      output = {
+        "*" = {
+          bg = "${config.home.homeDirectory}/.wallpaper.jpg fill";
+        };
+
+        eDP-1 = {
+          pos = "0,1200";
+        };
+
+        HDMI-A-2 = {
+          pos = "0,0";
+        };
       };
     };
     extraConfig = ''
