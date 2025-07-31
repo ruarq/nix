@@ -28,7 +28,7 @@
     python3
     python3Packages.pip
     go
-    nodejs
+    nodejs_24
     bun
     rustup
     cargo-release
@@ -39,6 +39,7 @@
     firefox
     thunderbird
     element-desktop gcr
+    bitwig-studio5
   ];
 
   imports = [

@@ -5,7 +5,7 @@
       default = {
         name = "default";
         layer = "top";
-        position = "bottom";
+        position = "top";
         height = 20;
         modules-left = [
           "sway/workspaces"

@@ -50,5 +50,7 @@
     rtkit.enable = true;
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   system.stateVersion = "25.05";
 }

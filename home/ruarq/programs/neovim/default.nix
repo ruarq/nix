@@ -253,6 +253,14 @@
         }
       end)
 
+      -- diagnostic configuration
+      vim.diagnostic.config {
+        virtual_text = {
+          prefix = '%',
+        },
+        severity_sort = true,
+      }
+
       -- format on save rust files
       vim.api.nvim_create_autocmd("BufWritePre", {
         pattern = "*.rs",
