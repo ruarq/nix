@@ -47,9 +47,7 @@
             cmd = { "${pkgs.rust-analyzer}/bin/rust-analyzer" },
             settings = {
               ['rust-analyzer'] = {
-                checkOnSave = {
-                  command = "clippy",
-                },
+                checkOnSave = true,
                 inlayHints = {
                   enable                      = true,
                   maxLength                   = null,
@@ -63,7 +61,7 @@
                   implicitSizedBoundHints     = { enable = true },
                   parameterHints              = { enable = true },
                   rangeExclusiveHints         = { enable = true },
-                  renderColons                = { enable = true },
+                  renderColons                = true,
 
                   closingBraceHints = {
                     enable = true,

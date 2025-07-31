@@ -12,8 +12,10 @@
     tree
     htop
     fastfetch
+    unzip
 
     cloc
+    gnumake
     openssh
     keychain
     wl-clipboard
@@ -24,6 +26,7 @@
     clang_20
     python3
     python3Packages.pip
+    python3Packages.dbus-python
     go
     nodejs
     bun
