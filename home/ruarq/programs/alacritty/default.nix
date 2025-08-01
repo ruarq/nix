@@ -4,7 +4,7 @@
     settings = {
       terminal = {
         shell = {
-          program = "${pkgs.tmux}/bin/tmux";
+          program = "${pkgs.fish}/bin/fish";
         };
       };
 

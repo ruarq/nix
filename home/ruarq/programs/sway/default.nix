@@ -42,6 +42,11 @@
 
       bindsym XF86MonBrightnessUp exec brightnessctl set +5%
       bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+      exec swaymsg "workspace 4; exec thunderbird"
+      exec swaymsg "workspace 3; exec element-desktop"
+      exec swaymsg "workspace 2; exec firefox"
+      exec swaymsg "workspace 1; exec alacritty"
     '';
   };
 
