@@ -11,6 +11,7 @@
     htop
     fastfetch
     unzip
+    watson
 
     cloc
     gnumake
@@ -52,6 +53,7 @@
     ./programs/ssh/default.nix
     ./programs/waybar/default.nix
 
+    ./scripts/tmux-edit/default.nix
     ./scripts/tmux-nix/default.nix
     ./scripts/tmux-proofbuddy/default.nix
   ];
