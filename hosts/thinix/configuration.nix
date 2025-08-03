@@ -28,10 +28,12 @@
 
   services = {
     tlp.enable = true;
+
     xserver = {
       enable = true;
       xkb.layout = "de";
     };
+
     displayManager = {
       sddm = {
         enable = true;
@@ -42,12 +44,22 @@
       ];
       defaultSession = "sway";
     };
+
     dbus.enable = true;
+
+    gnome.gnome-keyring.enable = true;
   };
 
   security = {
     polkit.enable = true;
     rtkit.enable = true;
+
+    # to unlock the keyring automatically
+    pam.services = {
+      sddm.enableGnomeKeyring = true;
+      login.enableGnomeKeyring = true;
+      passwd.enableGnomeKeyring = true;
+    };
   };
 
   nixpkgs.config.allowUnfree = true;
