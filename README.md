@@ -10,6 +10,10 @@ such that an input needed only for one specific host doesn't end up on all the o
 Because it's kind of annoying to build a flake from any directory which is not the directory the flake resides in,
 I chose to use Makefiles and make (_ha- ha.._) my life easier.
 
+## Building a host
+
+You can list all available hosts using `make list-hosts`, and switch to it using `make rebuild-<host>`.
+
 ## Structure
 
 ```
