@@ -2,6 +2,14 @@
 
 This is my multi-host nix configuration. Currently being refactored.
 
+## Multiple flakes
+
+I decided to use multiple flakes as I am not sure how to separate inputs between multiple hosts,
+such that an input needed only for one specific host doesn't end up on all the other hosts.
+
+Because it's kind of annoying to build a flake from any directory which is not the directory the flake resides in,
+I chose to use Makefiles and make (_ha- ha.._) my life easier.
+
 ## Structure
 
 ```
