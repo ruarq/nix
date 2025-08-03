@@ -24,7 +24,7 @@
           interval = updateInterval;
         };
         memory = {
-          format = "RAM {avail}GiB";
+          format = "RAM {avail}GiB SWP {swapAvail}GiB";
           interval = updateInterval;
         };
         disk = {

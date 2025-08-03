@@ -57,4 +57,8 @@
     ./scripts/tmux-nix/default.nix
     ./scripts/tmux-proofbuddy/default.nix
   ];
+
+  home.sessionVariables = {
+    EDITOR = "vim";
+  };
 }
