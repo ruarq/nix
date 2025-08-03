@@ -53,5 +53,8 @@
     ./programs/alacritty/default.nix
     ./programs/ssh/default.nix
     ./programs/waybar/default.nix
+
+    ./scripts/tmux-nix/default.nix
+    ./scripts/tmux-proofbuddy/default.nix
   ];
 }
