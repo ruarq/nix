@@ -8,6 +8,14 @@
       vim-prettier
 
       {
+        plugin = oil-nvim;
+        type = "lua";
+        config = ''
+          require('oil').setup {}
+        '';
+      }
+
+      {
         plugin = nvim-colorizer-lua;
         type = "lua";
         config = ''
@@ -200,14 +208,12 @@
 
     extraPackages = with pkgs; [
       nixd
-      lua-language-server
       ripgrep
       fd
       rust-analyzer
       rustfmt
       gopls
       typescript-language-server
-      nodePackages.prettier
       prettierd
     ];
 
@@ -236,11 +242,16 @@
       vim.keymap.set('n', '<Tab>', '<cmd>bnext<CR>')
       vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<CR>')
 
+      -- oil keybindings
+      vim.keymap.set('n', '<leader>o', '<cmd>Oil<CR>')
+
       -- telescope keybindings
       vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<CR>')
       vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<CR>')
       vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<CR>')
       vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<CR>')
+      vim.keymap.set('n', '<leader>fr', '<cmd>Telescope lsp_references<CR>')
+      vim.keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<CR>')
 
       -- lsp keybindings
       vim.keymap.set('n', '<leader>ld', vim.lsp.buf.definition)

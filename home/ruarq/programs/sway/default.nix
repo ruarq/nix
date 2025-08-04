@@ -1,4 +1,8 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
+  home.packages = with pkgs; [
+    autotiling
+  ];
+
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -49,6 +53,8 @@
       exec swaymsg "exec element-desktop"
       exec swaymsg "workspace 2; exec firefox"
       exec swaymsg "workspace 1; exec alacritty"
+
+      exec_always autotiling
     '';
   };
 
