@@ -16,6 +16,7 @@ I chose to use Makefiles and make (_ha- ha.._) my life easier.
 $ make list-hosts       -- lists all available hosts
 $ make rebuild-<host>   -- rebuild and switch to a specific host
 $ make build-<host>     -- rebuild a specific host (doesn't switch to it)
+$ make check-<host>     -- runs `nix-flake-check` on the host
 ```
 
 ## Structure
