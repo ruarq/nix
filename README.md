@@ -1,6 +1,6 @@
 # Nix
 
-This is my multi-host nix configuration. Currently being refactored.
+This is my multi-host nix configuration. Currently being refactored and riced to a Minecraft-like theme.
 
 ## Multiple flakes
 
