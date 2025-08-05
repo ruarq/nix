@@ -238,6 +238,11 @@
       -- set prettier path to prettierd for faster formatting
       vim.g["prettier#exec_cmd_path"] = "${pkgs.prettierd}/bin/prettierd"
 
+      -- just some nvim keybinds
+      vim.keymap.set('n', '<leader>m', '<cmd>Man<CR>')
+      vim.keymap.set('n', '<leader>x', '<cmd>x<CR>')
+      vim.keymap.set('n', '<leader>q', '<cmd>q<CR>')
+
       -- to switch between buffers more easily
       vim.keymap.set('n', '<Tab>', '<cmd>bnext<CR>')
       vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<CR>')

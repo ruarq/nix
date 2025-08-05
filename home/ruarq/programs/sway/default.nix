@@ -20,9 +20,12 @@
       ];
       gaps = {
         inner = 5;
-        outer = 5;
+        # outer = 5;
+        top = 0;
+        right = 5;
+        bottom = 5;
+        left = 5;
         smartBorders = "on";
-        smartGaps = true;
       };
       window.titlebar = false;
       output = {

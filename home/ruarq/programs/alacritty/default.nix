@@ -9,10 +9,10 @@
       };
 
       font = {
-        size = 12;
+        size = 13;
 
         normal = {
-          family = "FiraCode Nerd Font Mono";
+          family = "Monocraft";
         };
       };
     };

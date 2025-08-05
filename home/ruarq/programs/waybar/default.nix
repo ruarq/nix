@@ -6,6 +6,7 @@
         name = "default";
         layer = "top";
         position = "top";
+        margin = "10 10 0 10";
         height = 20;
         modules-left = [
           "sway/workspaces"
@@ -47,14 +48,14 @@
     };
     style = ''
       * {
-        /* `otf-font-awesome` is required to be installed for icons */
-        font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+        font-family: "Monocraft" /* , "FiraCode Nerd Font Mono" */;
         font-size: 12px;
         min-height: 0;
       }
 
       window#waybar {
-          background-color: #1e1e2e;
+          /* background-color: #1e1e2e; */
+          background-color: transparent;
           color: #cdd6f4;
           transition-property: background-color;
           transition-duration: .5s;
@@ -72,24 +73,16 @@
           border-radius: 0;
       }
 
-      button:hover {
-          background: inherit;
-          box-shadow: inset 0 -3px #9399b2;
-      }
-
       #workspaces button {
-          padding: 0 5px;
-          background-color: transparent;
-          color: #cdd6f4;
-      }
-
-      #workspaces button:hover {
-          background: rgba(0, 0, 0, 0.2);
+        padding: 0 5px;
+        margin-left: 5px;
+        margin-right: 5px;
+        background-color: transparent;
+        color: #cdd6f4;
       }
 
       #workspaces button.focused {
           background-color: #313244;
-          box-shadow: inset 0 -3px #6c7086;
       }
 
       #workspaces button.urgent {
@@ -113,21 +106,16 @@
       #temperature,
       #network {
         padding: 0 10px;
+        margin-left: 5px;
+        margin-right: 5px;
         color: #cdd6f4;
       }
 
-      #window,
-      #workspaces {
-        margin: 0 4px;
-      }
-
-      /* If workspaces is the leftmost module, omit left margin */
-      .modules-left > widget:first-child > #workspaces {
+      .modules-left > widget:first-child > * {
         margin-left: 0;
       }
 
-      /* If workspaces is the rightmost module, omit right margin */
-      .modules-right > widget:last-child > #workspaces {
+      .modules-right > widget:last-child > * {
         margin-right: 0;
       }
 

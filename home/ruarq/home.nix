@@ -34,6 +34,7 @@
     cargo-semver-checks
 
     nerd-fonts.fira-code
+    monocraft
 
     firefox
     thunderbird
