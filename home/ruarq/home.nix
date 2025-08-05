@@ -13,7 +13,6 @@
     unzip
     watson
     license-generator
-
     cloc
     gnumake
     ninja

@@ -40,7 +40,7 @@ in {
         };
 
         HDMI-A-2 = {
-          pos = "0,-1080";
+          pos = "0,-1200";
         };
       };
     };
@@ -52,11 +52,17 @@ in {
       bindsym XF86MonBrightnessUp exec brightnessctl set +5%
       bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
+      workspace 4 output eDP-1
       exec swaymsg "workspace 4; exec thunderbird"
-      # exec swaymsg "workspace 3; exec element-desktop"
+
+      workspace 3 output eDP-1
       assign [class="Element"] workspace 3
       exec swaymsg "exec element-desktop"
+
+      workspace 2 output eDP-1
       exec swaymsg "workspace 2; exec firefox"
+
+      workspace 1 output HDMI-A-2
       exec swaymsg "workspace 1; exec alacritty"
 
       exec_always autotiling
