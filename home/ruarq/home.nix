@@ -12,6 +12,7 @@
     fastfetch
     unzip
     watson
+    license-generator
 
     cloc
     gnumake
