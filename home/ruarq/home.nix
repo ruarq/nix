@@ -5,7 +5,7 @@
     stateVersion = "25.05";
   };
 
-  home.packages = with pkgs; [
+  ome.packages = with pkgs; [
     delta
     tree
     htop
