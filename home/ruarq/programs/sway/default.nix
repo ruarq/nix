@@ -1,4 +1,6 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+  let wallpaper = "minecraft-dark.wallpaper.png";
+in {
   home.packages = with pkgs; [
     autotiling
   ];
@@ -30,7 +32,7 @@
       window.titlebar = false;
       output = {
         "*" = {
-          bg = "${config.home.homeDirectory}/.wallpaper.jpg fill";
+          bg = "${config.home.homeDirectory}/.${wallpaper} fill";
         };
 
         eDP-1 = {
@@ -61,7 +63,7 @@
     '';
   };
 
-  home.file.".wallpaper.jpg" = {
-    source = ../../assets/wallpaper.jpg;
+  home.file.".${wallpaper}" = {
+    source = ../../assets/${wallpaper};
   };
 }

@@ -9,10 +9,10 @@
       };
 
       font = {
-        size = 13;
+        size = 14;
 
         normal = {
-          family = "Monocraft";
+          family = "Monocraft Nerd Font";
         };
       };
     };
