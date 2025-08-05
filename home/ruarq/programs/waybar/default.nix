@@ -21,28 +21,32 @@
           "clock"
         ];
         cpu = {
-          format = "CPU {usage}% / {load:.0f}%";
+          format = "C {usage}%";
+          tooltip-format = "Load: {load:.0f}%";
           interval = updateInterval;
         };
         memory = {
-          format = "RAM {avail}GiB SWP {swapAvail}GiB";
+          format = "M {avail}GiB";
+          tooltip-format = "SWP: {swapAvail}GiB";
           interval = updateInterval;
         };
         disk = {
-          format = "DSK {free}";
+          format = "D {free}";
           interval = updateInterval;
         };
         network = {
-          format = "↑{bandwidthUpBits} ↓{bandwidthDownBits} ({signalStrength}%)";
-          tooltip-format = "Connected to: {essid} ({ipaddr})";
+          format = "N {signalStrength}%";
+          tooltip-format = "Connected to: {essid} ({ipaddr})\nBandwidth: ↑{bandwidthUpBits} ↓{bandwidthDownBits}";
           interval = updateInterval;
         };
         battery = {
-          format = "{capacity}% ({power:.0f}W) {time}";
+          format = "B {capacity}%";
+          tooltip-format = "{power:.0f}W\n{time}";
           interval = updateInterval;
         };
         clock = {
-          format = "{:%a, %d. %b  %H:%M}";
+          format = "{:%H:%M}";
+          tooltip-format = "{:%a %d. %b}";
         };
       };
     };
