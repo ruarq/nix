@@ -1,4 +1,9 @@
-{ ... }: let updateInterval = 5; in {
+{ config, ... }:
+let
+  updateInterval = 5;
+  hotbar-selected = "minecraft-hotbar-selected.png";
+  hotbar = "minecraft-hotbar.png";
+in {
   programs.waybar = {
     enable = true;
     settings = {
@@ -77,16 +82,22 @@
           border-radius: 0;
       }
 
+      #workspaces {
+        background-image: url("${config.home.homeDirectory}/.${hotbar}");
+        background-size: 180px 20px;
+      }
+
       #workspaces button {
-        padding: 0 5px;
-        margin-left: 5px;
-        margin-right: 5px;
+        padding: 0 2px;
         background-color: transparent;
         color: #cdd6f4;
       }
 
       #workspaces button.focused {
-          background-color: #313244;
+          /* background-color: #313244; */
+          background-image: url("${config.home.homeDirectory}/.${hotbar-selected}");
+          background-size: 22px 20px;
+          background-position: center;
       }
 
       #workspaces button.urgent {
@@ -163,5 +174,14 @@
         background-color: #f53c3c;
       }
     '';
+  };
+
+  home.file = {
+    ".${hotbar-selected}" = {
+      source = ../../assets/${hotbar-selected};
+    };
+    ".${hotbar}" = {
+      source = ../../assets/${hotbar};
+    };
   };
 }
