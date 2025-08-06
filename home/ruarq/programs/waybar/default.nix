@@ -3,6 +3,7 @@ let
   updateInterval = 5;
   hotbar-selected = "minecraft-hotbar-selected.png";
   hotbar = "minecraft-hotbar.png";
+  button = "minecraft-button.png";
 in {
   programs.waybar = {
     enable = true;
@@ -94,14 +95,23 @@ in {
       }
 
       #workspaces button.focused {
-          /* background-color: #313244; */
-          background-image: url("${config.home.homeDirectory}/.${hotbar-selected}");
-          background-size: 22px 20px;
-          background-position: center;
+        /* background-color: #313244; */
+        background-image: url("${config.home.homeDirectory}/.${hotbar-selected}");
+        background-size: 22px 20px;
+        background-position: center;
       }
 
       #workspaces button.urgent {
           background-color: #eb4d4b;
+      }
+
+      #workspaces button:hover {
+        box-shadow: inherit;
+        text-shadow: inherit;
+        background-image: url("${config.home.homeDirectory}/.${hotbar-selected}");
+        background-size: 22px 20px;
+        background-position: center;
+        padding: 0 2px;
       }
 
       #mode {
@@ -124,6 +134,8 @@ in {
         margin-left: 5px;
         margin-right: 5px;
         color: #cdd6f4;
+        background-image: url("${config.home.homeDirectory}/.${button}");
+        background-size: 100% 100%;
       }
 
       .modules-left > widget:first-child > * {
@@ -134,44 +146,20 @@ in {
         margin-right: 0;
       }
 
-      #clock {
-        background-color: #313244;
-      }
-
-      #battery {
-        background-color: #45475a;
-      }
-
       #battery.charging, #battery.plugged {
-        background-color: #26A65B;
+        color: #26A65B;
       }
 
       #battery.critical {
-        background-color: #f53c3c;
-      }
-
-      label:focus {
-        background-color: #6c7086;
-      }
-
-      #cpu, #temperature {
-        background-color: #45475a;
+        color: #f53c3c;
       }
 
       #temperature.critical {
-        background-color: #f53c3c;
-      }
-
-      #memory, #disk {
-        background-color: #313244;
-      }
-
-      #network {
-        background-color: #313244;
+        color: #f53c3c;
       }
 
       #network.disconnected {
-        background-color: #f53c3c;
+        color: #f53c3c;
       }
     '';
   };
@@ -182,6 +170,9 @@ in {
     };
     ".${hotbar}" = {
       source = ../../assets/${hotbar};
+    };
+    ".${button}" = {
+      source = ../../assets/${button};
     };
   };
 }
