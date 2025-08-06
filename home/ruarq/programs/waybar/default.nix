@@ -147,7 +147,7 @@ in {
       }
 
       #battery.charging, #battery.plugged {
-        color: #26A65B;
+        color: #89b4fa;
       }
 
       #battery.critical {
