@@ -10,6 +10,15 @@
       signer = "ssh";
     };
 
+    delta = {
+      enable = true;
+      options = {
+        navigate = true;
+        side-by-side = true;
+        light = false;
+      };
+    };
+
     extraConfig = {
       init.defaultBranch = "main";
 

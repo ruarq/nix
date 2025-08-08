@@ -112,7 +112,13 @@
         plugin = telescope-nvim;
         type = "lua";
         config = ''
-          require('telescope').setup{}
+        require('telescope').setup{
+          defaults = {
+            file_ignore_patterns = {
+              ".git/"
+            },
+          },
+        }
         '';
       }
 

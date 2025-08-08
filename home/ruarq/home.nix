@@ -21,7 +21,6 @@
     wl-clipboard
     pw-volume
     brightnessctl
-    gitui
 
     isabelle
     clang_20
@@ -50,7 +49,6 @@
     ./programs/tmux/default.nix
     ./programs/git/default.nix
     ./programs/neovim/default.nix
-    # ./programs/delta/default.nix
     ./programs/sway/default.nix
     ./programs/alacritty/default.nix
     ./programs/ssh/default.nix
