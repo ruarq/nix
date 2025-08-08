@@ -32,6 +32,7 @@
     rustup
     cargo-release
     cargo-semver-checks
+    cargo-tarpaulin
 
     nerd-fonts.fira-code
     monocraft
