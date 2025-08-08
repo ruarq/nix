@@ -21,6 +21,7 @@
     wl-clipboard
     pw-volume
     brightnessctl
+    gitui
 
     isabelle
     clang_20
