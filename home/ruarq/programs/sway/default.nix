@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
-  let wallpaper = "minecraft-dark.wallpaper.png";
+let
+  wallpaper = "minecraft-dark.wallpaper.png";
 in {
   home.packages = with pkgs; [
     autotiling

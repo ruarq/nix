@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home = {
     username = "ruarq";
     homeDirectory = "/home/ruarq";
@@ -21,6 +22,7 @@
     wl-clipboard
     pw-volume
     brightnessctl
+    pavucontrol
 
     isabelle
     clang_20
@@ -41,6 +43,7 @@
     thunderbird
     element-desktop gcr
     bitwig-studio5
+    steam
   ];
 
   imports = [
