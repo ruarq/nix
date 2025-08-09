@@ -7,9 +7,9 @@
     initrd = {
       availableKernelModules = [
         "xhci_pci"
-	"ahci"
+        "ahci"
         "nvme"
-	"usbhid"
+        "usbhid"
         "usb_storage"
         "sd_mod"
       ];
@@ -52,10 +52,10 @@
     nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.latest;
       modesetting.enable = true;
-      powerManagement = {
-        enable = true;
-        # finegrained = true;
-      };
+      # powerManagement = {
+      #   enable = true;
+      #   # finegrained = true;
+      # };
       open = true;
       nvidiaSettings = true;
     };

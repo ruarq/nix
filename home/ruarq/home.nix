@@ -23,6 +23,7 @@
     pw-volume
     brightnessctl
     pavucontrol
+    libxcvt
 
     isabelle
     clang_20
@@ -44,6 +45,7 @@
     element-desktop gcr
     bitwig-studio5
     steam
+    prismlauncher
   ];
 
   imports = [
