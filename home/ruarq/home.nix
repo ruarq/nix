@@ -23,7 +23,6 @@
     pw-volume
     brightnessctl
     pavucontrol
-    libxcvt
 
     isabelle
     clang_20
@@ -49,7 +48,6 @@
   ];
 
   imports = [
-    # ./programs/zsh/default.nix
     ./programs/fish/default.nix
     ./programs/tmux/default.nix
     ./programs/git/default.nix

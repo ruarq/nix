@@ -43,6 +43,10 @@ in {
         HDMI-A-2 = {
           pos = "0,-1200";
         };
+
+        DP-3 = {
+          mode = "1920x1080@144Hz";
+        };
       };
     };
     extraConfig = ''
@@ -52,6 +56,8 @@ in {
 
       bindsym XF86MonBrightnessUp exec brightnessctl set +5%
       bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+      output * adaptive_sync off
 
       workspace 4 output eDP-1
       exec swaymsg "workspace 4; exec thunderbird"

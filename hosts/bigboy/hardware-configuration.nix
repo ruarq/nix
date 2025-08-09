@@ -1,4 +1,4 @@
-{ pkgs, config, lib, modulesPath, ... }: {
+{ config, lib, modulesPath, ... }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -21,7 +21,6 @@
       grub.device = "dev/nvme0n1";
     };
 
-    kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = ["kvm-intel"];
   };
 
