@@ -40,9 +40,20 @@
         wayland.enable = true;
       };
       sessionPackages = with pkgs; [
-        sway
+        (writeTextFile {
+          name = "sway-unsupported-gpu";
+          destination = "/share/wayland-sessions/sway-unsupported-gpu.desktop";
+          text = ''
+            [Desktop Entry]
+            Name=Sway (--unsupported-gpu)
+            Comment=An i3-compatible Wayland compositor with GPU support
+            Exec=sway --unsupported-gpu
+            Type=Application
+          '';
+          passthru.providedSessions = ["sway-unsupported-gpu"];
+        })
       ];
-      defaultSession = "sway";
+      defaultSession = "sway-unsupported-gpu";
     };
 
     dbus.enable = true;
