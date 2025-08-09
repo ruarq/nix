@@ -60,6 +60,7 @@
     ./scripts/tmux-edit/default.nix
     ./scripts/tmux-nix/default.nix
     ./scripts/tmux-proofbuddy/default.nix
+    ./scripts/tmux-iris/default.nix
   ];
 
   home.sessionVariables = {
