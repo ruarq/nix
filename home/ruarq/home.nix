@@ -24,6 +24,12 @@
     brightnessctl
     pavucontrol
 
+    # for audio production
+    wineWow64Packages.staging
+    winetricks
+    yabridge
+    yabridgectl
+
     isabelle
     clang_20
     python3
