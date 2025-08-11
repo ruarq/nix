@@ -64,7 +64,7 @@
     ./programs/waybar/default.nix
 
     ./scripts/tmux-edit/default.nix
-    ./scripts/tmux-nix/default.nix
+    ./scripts/nixcfg/default.nix
     ./scripts/tmux-proofbuddy/default.nix
     ./scripts/tmux-iris/default.nix
     ./scripts/minecraft/default.nix

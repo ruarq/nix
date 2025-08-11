@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SESSION="nix-config"
+SESSION="nixcfg"
 WORKDIR="$HOME/nix"
 WEDITOR="editor"
 WCMDS="cmds"
