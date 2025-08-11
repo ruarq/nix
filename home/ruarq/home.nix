@@ -67,6 +67,7 @@
     ./scripts/tmux-nix/default.nix
     ./scripts/tmux-proofbuddy/default.nix
     ./scripts/tmux-iris/default.nix
+    ./scripts/minecraft/default.nix
   ];
 
   home.sessionVariables = {
