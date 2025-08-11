@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SESSION="project $(pwd)"
+SESSION="tedit $(pwd)"
 WORKDIR="$(pwd)"
 WEDITOR="editor"
 WCMDS="cmds"

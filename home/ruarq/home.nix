@@ -63,7 +63,7 @@
     ./programs/ssh/default.nix
     ./programs/waybar/default.nix
 
-    ./scripts/tmux-edit/default.nix
+    ./scripts/tedit/default.nix
     ./scripts/nixcfg/default.nix
     ./scripts/tmux-proofbuddy/default.nix
     ./scripts/tmux-iris/default.nix
