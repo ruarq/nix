@@ -10,7 +10,7 @@
     delta
     tree
     htop
-    fastfetch
+    neofetch
     unzip
     watson
     license-generator
