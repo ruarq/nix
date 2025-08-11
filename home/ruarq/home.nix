@@ -46,6 +46,7 @@
     monocraft
 
     firefox
+    discord
     thunderbird
     element-desktop gcr
     bitwig-studio5
