@@ -16,6 +16,8 @@
   environment.systemPackages = with pkgs; [
     wayland
     wayland-utils
+
+    kdePackages.sddm-kcm
   ];
 
   xdg.portal = {
@@ -26,8 +28,6 @@
   console.keyMap = "de";
 
   services = {
-    tlp.enable = true;
-
     xserver = {
       enable = true;
       xkb.layout = "de";
@@ -55,6 +55,8 @@
       ];
       defaultSession = "sway-unsupported-gpu";
     };
+
+    desktopManager.plasma6.enable = true;
 
     dbus.enable = true;
 

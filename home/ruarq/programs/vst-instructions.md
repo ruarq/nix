@@ -13,3 +13,4 @@ PsyScope -> wine (install in "Common Files/DLLPlugins" or something like that)
 Loudmax -> wine
 Correlometer
 ValhallaSupermassive
+MeldaProduction -> wine
