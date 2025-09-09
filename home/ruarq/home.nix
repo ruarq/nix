@@ -73,5 +73,7 @@
 
   home.sessionVariables = {
     EDITOR = "vim";
+    XDG_PICTURES_DIR="$HOME/Pictures";
+    XDG_SCREENSHOTS_DIR="$HOME/Pictures/Screenshots";
   };
 }

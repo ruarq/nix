@@ -4,6 +4,7 @@ let
 in {
   home.packages = with pkgs; [
     autotiling
+    sway-contrib.grimshot
   ];
 
   wayland.windowManager.sway = {
@@ -56,6 +57,9 @@ in {
 
       bindsym XF86MonBrightnessUp exec brightnessctl set +5%
       bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+      bindsym Mod4+p exec grimshot save output
+      bindsym Mod4+Shift+p exec grimshot save area
 
       output * adaptive_sync off
 
