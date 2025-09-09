@@ -8,6 +8,16 @@
       vim-prettier
 
       {
+        plugin = git-blame-nvim;
+        type = "lua";
+        config = ''
+        require('gitblame').setup {
+          enabled = false,
+        }
+        '';
+      }
+
+      {
         plugin = oil-nvim;
         type = "lua";
         config = ''
@@ -330,6 +340,8 @@
           end
         end,
       })
+
+      vim.api.nvim_create_user_command('Blame', 'GitBlameToggle', {})
     '';
   };
 }
