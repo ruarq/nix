@@ -25,8 +25,8 @@
     pavucontrol
 
     # for audio production
-    wineWow64Packages.staging
     winetricks
+    wineWowPackages.yabridge
     yabridge
     yabridgectl
 
@@ -50,6 +50,7 @@
     thunderbird
     element-desktop gcr
     bitwig-studio5
+    reaper
     steam
     prismlauncher
   ];

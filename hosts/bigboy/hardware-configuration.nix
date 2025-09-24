@@ -1,4 +1,4 @@
-{ config, lib, modulesPath, ... }: {
+{ config, lib, modulesPath, pkgs, ... }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -22,6 +22,11 @@
     };
 
     kernelModules = ["kvm-intel"];
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = [
+      "preempt=full"
+      "threadirq"
+    ];
   };
 
   fileSystems = {

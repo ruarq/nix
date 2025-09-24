@@ -83,6 +83,12 @@
     };
   };
 
+  musnix = {
+    enable = true;
+    # kernel.realtime = true;
+    das_watchdog.enable = true;
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "25.05";
