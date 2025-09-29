@@ -50,7 +50,6 @@
     thunderbird
     element-desktop gcr
     bitwig-studio5
-    reaper
     steam
     prismlauncher
   ];
