@@ -52,6 +52,7 @@
     bitwig-studio5
     steam
     prismlauncher
+    tidal-hifi
   ];
 
   imports = [
