@@ -53,6 +53,7 @@
     steam
     prismlauncher
     tidal-hifi
+    anydesk
   ];
 
   imports = [
