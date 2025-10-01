@@ -45,6 +45,9 @@
           -- typescript
           require('lspconfig').ts_ls.setup {}
 
+          -- C++
+          require('lspconfig').clangd.setup {}
+
           -- golang
           require('lspconfig').gopls.setup {
             cmd = { "${pkgs.gopls}/bin/gopls" },

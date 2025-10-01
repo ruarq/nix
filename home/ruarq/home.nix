@@ -32,6 +32,7 @@
 
     isabelle
     clang_20
+    llvmPackages_20.clang-tools
     python3
     python3Packages.pip
     go
