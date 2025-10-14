@@ -23,6 +23,7 @@
     pw-volume
     brightnessctl
     pavucontrol
+    file
 
     # for audio production
     winetricks

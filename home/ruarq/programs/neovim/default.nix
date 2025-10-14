@@ -251,6 +251,12 @@
       vim.opt.scrolloff = 8
       vim.opt.updatetime = 50
       vim.opt.signcolumn = 'number'
+      -- vim.opt.list = true
+      --[[ vim.opt.listchars = {
+        tab = '→ ',
+        trail = '·',
+        eol = '↲',
+      } ]]--
 
       vim.g.mapleader = " "
 
