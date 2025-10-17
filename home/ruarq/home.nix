@@ -7,6 +7,7 @@
   };
 
   home.packages = with pkgs; [
+    # cli programs
     delta
     tree
     htop
@@ -24,13 +25,9 @@
     brightnessctl
     pavucontrol
     file
+    direnv
 
-    # for audio production
-    winetricks
-    wineWowPackages.yabridge
-    yabridge
-    yabridgectl
-
+    # language stuff
     isabelle
     clang_20
     llvmPackages_20.clang-tools
@@ -44,14 +41,15 @@
     cargo-semver-checks
     cargo-tarpaulin
 
+    # Fonts
     nerd-fonts.fira-code
     monocraft
 
+    # GUI programs
     firefox
     discord
     thunderbird
     element-desktop gcr
-    bitwig-studio5
     steam
     prismlauncher
     tidal-hifi
