@@ -33,6 +33,14 @@
         '';
       }
 
+      {
+        plugin = nvim-jdtls;
+        type = "lua";
+        config = ''
+          vim.lsp.enable("jdtls")
+        '';
+      }
+
       # language server
       vim-nix
       {
@@ -234,6 +242,7 @@
       gopls
       typescript-language-server
       prettierd
+      jdt-language-server
     ];
 
     extraLuaConfig = ''
