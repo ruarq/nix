@@ -5,6 +5,7 @@ in {
   home.packages = with pkgs; [
     autotiling
     sway-contrib.grimshot
+    rofi-wayland
   ];
 
   wayland.windowManager.sway = {
@@ -17,6 +18,7 @@ in {
       };
       modifier = "Mod4";
       terminal = "alacritty";
+      menu = "${pkgs.rofi-wayland}/bin/rofi -show drun";
       bars = [
         {
           command = "waybar";
