@@ -19,7 +19,6 @@
       "video"
       "audio"
       "input"
-      "realtime"
       "pipewire"
     ];
   };
