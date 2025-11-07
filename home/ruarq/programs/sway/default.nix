@@ -6,6 +6,7 @@ in {
     autotiling
     sway-contrib.grimshot
     rofi-wayland
+    swaylock
   ];
 
   wayland.windowManager.sway = {

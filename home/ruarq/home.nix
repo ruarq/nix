@@ -40,6 +40,7 @@
     cargo-release
     cargo-semver-checks
     cargo-tarpaulin
+    typst
 
     # Fonts
     nerd-fonts.fira-code
@@ -54,6 +55,7 @@
     prismlauncher
     tidal-hifi
     anydesk
+    zathura
   ];
 
   imports = [

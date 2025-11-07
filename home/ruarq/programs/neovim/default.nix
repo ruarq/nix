@@ -4,16 +4,31 @@
     viAlias = true;
     vimAlias = true;
 
+    extraPackages = with pkgs; [
+      nixd
+      ripgrep
+      fd
+      rust-analyzer
+      rustfmt
+      gopls
+      typescript-language-server
+      prettierd
+      jdt-language-server
+      tinymist
+      typst-fmt
+    ];
+
     plugins = with pkgs.vimPlugins; [
       vim-prettier
+      typst-vim
 
       {
         plugin = git-blame-nvim;
         type = "lua";
         config = ''
-        require('gitblame').setup {
-          enabled = false,
-        }
+          require('gitblame').setup {
+            enabled = false,
+          }
         '';
       }
 
@@ -47,6 +62,8 @@
         plugin = nvim-lspconfig;
         type = "lua";
         config = ''
+          require('lspconfig').tinymist.setup {}
+
           -- nixd
           require('lspconfig').nixd.setup {}
 
@@ -231,18 +248,6 @@
         vim.cmd.colorscheme "catppuccin"
         '';
       }
-    ];
-
-    extraPackages = with pkgs; [
-      nixd
-      ripgrep
-      fd
-      rust-analyzer
-      rustfmt
-      gopls
-      typescript-language-server
-      prettierd
-      jdt-language-server
     ];
 
     extraLuaConfig = ''
