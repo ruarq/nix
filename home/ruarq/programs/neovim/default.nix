@@ -16,6 +16,7 @@
       jdt-language-server
       tinymist
       typst-fmt
+      pyright
     ];
 
     plugins = with pkgs.vimPlugins; [
@@ -62,6 +63,10 @@
         plugin = nvim-lspconfig;
         type = "lua";
         config = ''
+          -- python
+          require('lspconfig').pyright.setup {}
+
+          -- typst
           require('lspconfig').tinymist.setup {}
 
           -- nixd
@@ -169,6 +174,8 @@
           plugins.lua
           plugins.bash
           plugins.vim
+          plugins.python
+          plugins.java
         ]);
         type = "lua";
         config = ''
