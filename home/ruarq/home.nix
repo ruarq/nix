@@ -40,6 +40,7 @@
     cargo-release
     cargo-semver-checks
     cargo-tarpaulin
+    cargo-cross
     typst
 
     # Fonts
@@ -52,10 +53,14 @@
     thunderbird
     element-desktop gcr
     steam
-    prismlauncher
+    lunar-client
     tidal-hifi
     anydesk
     zathura
+    arduino-ide
+    wireshark
+    realvnc-vnc-viewer
+    nautilus
   ];
 
   imports = [

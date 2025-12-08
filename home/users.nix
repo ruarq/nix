@@ -20,6 +20,8 @@
       "audio"
       "input"
       "pipewire"
+      "wireshark"
+      "docker"
     ];
   };
 

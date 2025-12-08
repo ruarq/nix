@@ -68,6 +68,28 @@
       alsa.support32Bit = true;
       pulse.enable = true;
       jack.enable = true;
+
+      extraConfig.pipewire."99-hogwarts-legacy-audio-fix" = {
+        "context.modules" = [
+          {
+            name = "libpipewire-module-loopback";
+            args = {
+              "node.description" = "Hogwarts Legacy Audio Fix";
+              "capture.props" = {
+                "node.name" = "hogwarts_legacy_stereo_sink";
+                "media.class" = "Audio/Sink";
+                "audio.position" = [ "FL" "FR" ];
+              };
+              "playback.props" = {
+                "node.target" = "alsa_output.usb-MOTU_M4_M4MA0A7EQ6-00.Direct__Direct__sink";
+                "audio.position" = [ "FL" "FR" ];
+                "stream.dont-remix" = true;
+                "node.passive" = true;
+              };
+            };
+          }
+        ];
+      };
     };
   };
 
@@ -88,6 +110,8 @@
     # kernel.realtime = true;
     das_watchdog.enable = true;
   };
+
+  virtualisation.docker.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
