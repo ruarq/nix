@@ -35,7 +35,6 @@
     python3Packages.pip
     go
     nodejs_24
-    bun
     rustup
     cargo-release
     cargo-semver-checks

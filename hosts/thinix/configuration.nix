@@ -68,6 +68,13 @@
       login.enableGnomeKeyring = true;
       passwd.enableGnomeKeyring = true;
     };
+
+    pam.loginLimits = [{
+      domain = "*";
+      type = "soft";
+      item = "nofile";
+      value = "16284";
+    }];
   };
 
   nixpkgs.config.allowUnfree = true;
