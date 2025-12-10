@@ -1,164 +1,89 @@
-require('gitblame').setup {
-  enabled = false,
-}
-require('oil').setup {}
-require('colorizer').setup {}
+require("gitblame").setup({
+	enabled = false,
+})
+
+require("oil").setup({})
+require("colorizer").setup({})
 vim.lsp.enable("jdtls")
-require('lspconfig').pyright.setup {}
-require('lspconfig').tinymist.setup {}
-require('lspconfig').nixd.setup {}
-require('lspconfig').ts_ls.setup {}
-require('lspconfig').clangd.setup {}
 
-require('lspconfig').gopls.setup {
-  cmd = { "gopls" },
-  filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  settings = {
-    gopls = {
-      completeUnimported = true,
-      usePlaceholders = true,
-      analyses = {
-        unusedParams = true,
-      },
-    },
-  },
-}
+local actions = require("telescope.actions")
+require("telescope").setup({
+	defaults = require("telescope.themes").get_ivy({
+		file_ignore_patterns = {
+			"%.git/",
+		},
 
--- rust
-require('lspconfig').rust_analyzer.setup {
-  cmd = { "rust-analyzer" },
-  settings = {
-    ['rust-analyzer'] = {
-      checkOnSave = true,
-      inlayHints = {
-        enable                      = true,
-        maxLength                   = null,
-        closureStyle                = "impl_fn",
-        closureReturnTypeHints      = { enable = "never" },
-        discriminantHints           = { enable = "always" },
-        bindingModeHints            = { enable = true },
-        chainingHints               = { enable = true },
-        closureCaptureHints         = { enable = true },
-        implicitDrops               = { enable = false },
-        implicitSizedBoundHints     = { enable = true },
-        parameterHints              = { enable = true },
-        rangeExclusiveHints         = { enable = true },
-        renderColons                = true,
+		mappings = {
+			i = {
+				["<esc>"] = actions.close,
+				["<Tab>"] = {
+					actions.move_selection_next,
+					type = "action",
+					opts = { nowait = true, silent = true },
+				},
+				["<S-Tab>"] = {
+					actions.move_selection_previous,
+					type = "action",
+					opts = { nowait = true, silent = true },
+				},
+			},
+		},
+	}),
+})
 
-        closingBraceHints = {
-          enable = true,
-          minLines = 25,
-        },
+require("nvim-treesitter.configs").setup({
+	highlight = {
+		enable = true,
+	},
+})
 
-        expressionAdjustmentHints = {
-          enable = "never",
-          hideOutsideUnsafe = false,
-          mode = "prefix",
-        },
+local cmp = require("cmp")
+cmp.setup({
+	mapping = cmp.mapping.preset.insert({
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+		["<S-Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
+		["<C-e>"] = cmp.mapping.abort(),
+	}),
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp" },
+	}, {
+		{ name = "buffer" },
+		{ name = "path" },
+	}),
+})
 
-        genericParameterHints = {
-          const     = { enable = true },
-          lifetime  = { enable = true },
-          type      = { enable = true },
-        },
+require("catppuccin").setup({
+	flavour = "mocha",
+	background = {
+		light = "latte",
+		dark = "mocha",
+	},
+	transparent_background = false,
+	term_colors = false,
+	integrations = {
+		cmp = true,
+		nvimtree = true,
+		treesitter = true,
+		telescope = {
+			enabled = true,
+		},
+	},
+})
 
-        lifetimeElisionHints = {
-          enable = "never",
-          useParameterNames = true,
-        },
-
-        typeHints = {
-          enable = true,
-          hideClosureInitialization = false,
-          hideClosureParameter = false,
-          hideNamedConstructor = false,
-        },
-      },
-    },
-  },
-}
-
-local actions = require('telescope.actions')
-require('telescope').setup{
-  defaults = require('telescope.themes').get_ivy {
-    file_ignore_patterns = {
-      "%.git/"
-    },
-
-    mappings = {
-      i = {
-        ["<esc>"] = actions.close,
-        ["<Tab>"] = {
-          actions.move_selection_next,
-          type = "action",
-          opts = { nowait = true, silent = true },
-        },
-        ["<S-Tab>"] = {
-          actions.move_selection_previous,
-          type = "action",
-          opts = { nowait = true, silent = true },
-        },
-      },
-    },
-  },
-}
-
-require('nvim-treesitter.configs').setup {
-  highlight = {
-    enable = true,
-  },
-}
-
-local cmp = require('cmp')
-cmp.setup {
-  mapping = cmp.mapping.preset.insert({
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-    ['<CR>'] = cmp.mapping.confirm({ select = true, }),
-    ['<C-e>'] = cmp.mapping.abort(),
-  }),
-  sources = cmp.config.sources(
-    { 
-      { name = 'nvim_lsp' },
-    },
-    {
-      { name = 'buffer' },
-      { name = 'path' },
-    }
-  )
-}
-
-require("catppuccin").setup {
-  flavour = "mocha",
-  background = {
-    light = "latte",
-    dark = "mocha",
-  },
-  transparent_background = false,
-  term_colors = false,
-  integrations = {
-    cmp = true,
-    nvimtree = true,
-    treesitter = true,
-    telescope = {
-      enabled = true,
-    },
-  },
-}
-
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme("catppuccin")
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -173,104 +98,15 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
 vim.opt.updatetime = 50
-vim.opt.signcolumn = 'number'
--- vim.opt.list = true
---[[ vim.opt.listchars = {
-  tab = '→ ',
-  trail = '·',
-  eol = '↲',
-} ]]--
+vim.opt.signcolumn = "number"
 
-vim.g.mapleader = " "
-
--- set prettier path to prettierd for faster formatting
-vim.g["prettier#exec_cmd_path"] = "prettierd"
-
--- just some nvim keybinds
-vim.keymap.set('n', '<leader>m', '<cmd>Man<CR>')
-vim.keymap.set('n', '<leader>x', '<cmd>x<CR>')
-vim.keymap.set('n', '<leader>q', '<cmd>q<CR>')
-
--- to switch between buffers more easily
-vim.keymap.set('n', '<Tab>', '<cmd>bnext<CR>')
-vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<CR>')
-
--- oil keybindings
-vim.keymap.set('n', '<leader>o', '<cmd>Oil<CR>')
-
--- telescope keybindings
-vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files hidden=true<CR>')
-vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<CR>')
-vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<CR>')
-vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<CR>')
-vim.keymap.set('n', '<leader>fr', '<cmd>Telescope lsp_references<CR>')
-vim.keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<CR>')
-
--- lsp keybindings
-vim.keymap.set('n', '<leader>ld', vim.lsp.buf.definition)
-vim.keymap.set('n', '<leader>lh', vim.lsp.buf.hover)
-vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename)
-vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action)
-vim.keymap.set('n', '<leader>lf', function()
-  vim.lsp.buf.format {
-    async = true,
-  }
-end)
-
--- diagnostic configuration
-vim.keymap.set('n', '<leader>df', vim.diagnostic.open_float)
-vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev)
-
-local characters = { 
-  'ᚠ','ᚢ','ᚣ','ᚤ','ᚥ','ᚦ','ᚧ','ᚨ','ᚩ','ᚪ','ᚫ',
-  'ᚬ','ᚭ','ᚮ','ᚯ','ᚰ','ᚱ','ᚲ','ᚳ','ᚴ','ᚶ','ᚷ',
-  'ᚸ','ᚹ','ᚺ','ᚻ','ᚼ','ᚽ','ᚾ','ᚿ','ᛀ','ᛁ','ᛂ',
-  'ᛃ','ᛄ','ᛅ','ᛆ','ᛇ','ᛈ','ᛉ','ᛊ','ᛋ','ᛌ','ᛍ',
-  'ᛎ','ᛏ','ᛐ','ᛑ','ᛒ','ᛓ','ᛔ','ᛕ','ᛖ','ᛗ','ᛘ',
-  'ᛙ','ᛚ','ᛛ','ᛜ','ᛝ','ᛞ','ᛟ','ᛠ','ᛡ','ᛢ','ᛣ',
-  'ᛤ','ᛥ','ᛦ','ᛧ','ᛨ','ᛩ','ᛪ','᛫','᛬','᛭','ᛮ',
-  'ᛯ','ᛰ',
-}
-local function get_prefix(diagnostic, i, total)
-  local char = characters[math.random(#characters)]
-  return char .. " "
-end
-local frametime = 100
-local prefix_animation_timer = vim.loop.new_timer()
-prefix_animation_timer:start(0, frametime, vim.schedule_wrap(function()
-  vim.diagnostic.config {
-    virtual_text = {
-      prefix = get_prefix,
-    },
-    severity_sort = true,
-  }
-end))
-
--- format on save rust files
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*.rs",
-  callback = function()
-    vim.lsp.buf.format {
-      async = false,
-    }
-  end,
-})
-
--- format on save with prettier
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*.js,*.jsx,*.ts,*.tsx,*.json,*.css,*.scss,*.md,*.html",
-  command = "Prettier",
-})
-
--- inlay hints
 vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client and client.server_capabilities.inlayHintProvider then
-      vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
-    end
-  end,
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		if client and client.server_capabilities.inlayHintProvider then
+			vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+		end
+	end,
 })
 
-vim.api.nvim_create_user_command('Blame', 'GitBlameToggle', {})
+vim.api.nvim_create_user_command("Blame", "GitBlameToggle", {})

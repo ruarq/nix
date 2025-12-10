@@ -3,7 +3,7 @@
   home = {
     username = "ruarq";
     homeDirectory = "/home/ruarq";
-    stateVersion = "25.05";
+    stateVersion = "25.11";
   };
 
   home.packages = with pkgs; [
@@ -26,21 +26,40 @@
     pavucontrol
     file
     direnv
+    ripgrep
+    fd
+    man-pages
+    man-pages-posix
 
-    # language stuff
+    # Programming language stuff
     isabelle
     clang_20
     llvmPackages_20.clang-tools
     python3
     python3Packages.pip
+    pyright
     go
+    gopls
     nodejs_24
-    rustup
+    typescript-language-server
+    prettierd
+    rustc
+    clippy
+    cargo
+    rust-analyzer
+    rustfmt
     cargo-release
     cargo-semver-checks
     cargo-tarpaulin
     cargo-cross
     typst
+    tinymist
+    typst-fmt
+    nixd
+    nixfmt-rfc-style
+    jdt-language-server
+    lua-language-server
+    stylua
 
     # Fonts
     nerd-fonts.fira-code

@@ -3,7 +3,7 @@
 
   imports = [
     ./hardware-configuration.nix
-    ../../home/users.nix
+    ../../home/common.nix
   ];
 
   networking = {

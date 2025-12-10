@@ -4,21 +4,6 @@
     viAlias = true;
     vimAlias = true;
 
-    extraPackages = with pkgs; [
-      nixd
-      ripgrep
-      fd
-      rust-analyzer
-      rustfmt
-      gopls
-      typescript-language-server
-      prettierd
-      jdt-language-server
-      tinymist
-      typst-fmt
-      pyright
-    ];
-
     plugins = with pkgs.vimPlugins; [
       vim-prettier
       typst-vim
@@ -26,37 +11,37 @@
       oil-nvim
       nvim-colorizer-lua
       nvim-jdtls
-
-      # language server
       vim-nix
       nvim-lspconfig
-
-      # fuzzy finder
       plenary-nvim
       telescope-nvim
-
-      # syntax-highlighting
       rust-vim
-      {
-        plugin = nvim-treesitter.withPlugins (plugins: [
-          plugins.rust
-          plugins.nix
-          plugins.lua
-          plugins.bash
-          plugins.vim
-          plugins.python
-          plugins.java
-        ]);
-      }
+
       nvim-cmp
       cmp-nvim-lsp
       cmp-buffer
       cmp-path
+
       catppuccin-nvim
+      (nvim-treesitter.withPlugins (plugins: [
+        plugins.rust
+        plugins.nix
+        plugins.lua
+        plugins.bash
+        plugins.vim
+        plugins.python
+        plugins.java
+        plugins.go
+      ]))
     ];
 
     extraLuaConfig = ''
       ${lib.readFile ./init.lua}
+      ${lib.readFile ./lspconfig.lua}
+      ${lib.readFile ./keymap.lua}
+      ${lib.readFile ./virtual_text_prefix_animation.lua}
+      ${lib.readFile ./theme.lua}
+      ${lib.readFile ./format_on_save.lua}
     '';
   };
 }

@@ -8,6 +8,17 @@
     };
   };
 
+  documentation = {
+    enable = true;
+    dev.enable = true;
+    man = {
+      enable = true;
+      man-db.enable = true;
+      mandoc.enable = false;
+      generateCaches = true;
+    };
+  };
+
   users.users.ruarq = {
     isNormalUser = true;
     description = "ruarq";

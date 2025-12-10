@@ -4,7 +4,7 @@
   imports = [
     # home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
-    ../../home/users.nix
+    ../../home/common.nix
   ];
 
   networking = {
