@@ -52,7 +52,7 @@
     thunderbird
     element-desktop gcr
     steam
-    lunar-client
+    prismlauncher
     tidal-hifi
     anydesk
     zathura
