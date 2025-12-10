@@ -72,6 +72,13 @@
     }
   ];
 
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=no
+    AllowHibernation=no
+    AllowHybridSleep=no
+    AllowSuspendThenHibernate=no
+  '';
+
   networking.useDHCP = lib.mkDefault true;
   
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
