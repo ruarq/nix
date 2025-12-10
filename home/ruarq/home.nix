@@ -30,7 +30,6 @@
     fd
     man-pages
     man-pages-posix
-    newsboat
 
     # Programming language stuff
     isabelle
@@ -91,6 +90,7 @@
     ./programs/alacritty/default.nix
     ./programs/ssh/default.nix
     ./programs/waybar/default.nix
+    ./programs/newsboat/default.nix
 
     ./scripts/tedit/default.nix
     ./scripts/nixcfg/default.nix
