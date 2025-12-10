@@ -30,6 +30,7 @@
     fd
     man-pages
     man-pages-posix
+    newsboat
 
     # Programming language stuff
     isabelle
