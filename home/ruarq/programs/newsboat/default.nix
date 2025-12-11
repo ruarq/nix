@@ -14,13 +14,33 @@ in
     urls = [
       {
         title = "tagesschau";
-        tags = [ "orf" ];
+        tags = [ "orf" "news" ];
         url = "https://www.tagesschau.de/infoservices/alle-meldungen-100~rss2.xml";
       }
       {
-        title = "Rust Blog [main]";
-        tags = [ "lang" ];
+        title = "Rust Main Blog";
+        tags = [ "cs" ];
         url = "https://blog.rust-lang.org/feed.xml";
+      }
+      {
+        title = "NixOS Announcements";
+        tags = [ "cs" ];
+        url = "https://nixos.org/blog/announcements-rss.xml";
+      }
+      {
+        title = "neovim news";
+        tags = [ "cs" ];
+        url = "https://neovim.io/news.xml";
+      }
+      {
+        title = "Fabric MC";
+        tags = [ "gaming" ];
+        url = "https://fabricmc.net/feed.xml";
+      }
+      {
+        title = "Hacker News";
+        tags = [ "cs" "news" ];
+        url = "https://hnrss.org/frontpage?points=100";
       }
     ];
 
