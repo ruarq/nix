@@ -18,7 +18,7 @@ in
         url = "https://www.tagesschau.de/infoservices/alle-meldungen-100~rss2.xml";
       }
       {
-        title = "Rust Blog";
+        title = "Rust Blog [main]";
         tags = [ "lang" ];
         url = "https://blog.rust-lang.org/feed.xml";
       }
