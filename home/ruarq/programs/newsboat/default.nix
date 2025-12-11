@@ -17,6 +17,11 @@ in
         tags = [ "orf" ];
         url = "https://www.tagesschau.de/infoservices/alle-meldungen-100~rss2.xml";
       }
+      {
+        title = "Rust Blog";
+        tags = [ "lang" ];
+        url = "https://blog.rust-lang.org/feed.xml";
+      }
     ];
 
     extraConfig = ''
